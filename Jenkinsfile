@@ -7,28 +7,28 @@ node {
         checkout scm
     }
 
-    stage('Build image') {
+    // stage('Build image') {
   
-       app = docker.build("raj80dockerid/test")
-    }
+    //    app = docker.build("raj80dockerid/test")
+    // }
 
-    stage('Test image') {
+    // stage('Test image') {
   
 
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
-    }
+    //     app.inside {
+    //         sh 'echo "Tests passed"'
+    //     }
+    // }
 
-    stage('Push image') {
+    // stage('Push image') {
         
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-            app.push("${env.BUILD_NUMBER}")
-        }
-    }
+    //     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+    //         app.push("${env.BUILD_NUMBER}")
+    //     }
+    // }
     
-    stage('Trigger ManifestUpdate') {
-                echo "triggering updatemanifestjob"
-                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
-        }
+    // stage('Trigger ManifestUpdate') {
+    //             echo "triggering updatemanifestjob"
+    //             build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+    //     }
 }
