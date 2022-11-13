@@ -7,10 +7,10 @@ node {
         checkout scm
     }
 
-    // stage('Build image') {
+    stage('Build image') {
   
-    //    app = docker.build("raj80dockerid/test")
-    // }
+       app = docker.build("atinav/test")
+    }
 
     // stage('Test image') {
   
