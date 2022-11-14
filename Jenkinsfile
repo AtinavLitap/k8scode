@@ -1,41 +1,21 @@
-//node {
-//    def app
+node {
+   def app
 
-//     stage('Clone repository') {
-      
-
-//         checkout scm
-//     }
-
-//     stage('Build image') {
-//         // build an image locally atinav/test:latest
-//        app = docker.build("atinav/test")
-//        app.inside {
-//         sh 'echo "Tests passed 1"'
-//        }
-//     }
-    
-    
-    node {
-    checkout scm
-
-    def customImage = docker.build("my-image:${env.BUILD_ID}")
-
-    customImage.inside {
-        sh 'echo "All tests passed!"'
+    stage('Clone repository') {
+        checkout scm
     }
 
-
+    stage('Build image') {
+        // build an image locally atinav/test:latest
+       app = docker.build("atinav/test:${env.BUILD_ID}")
+    }
     
-    
 
-    // stage('Test image') {
-  
-
-    //     app.inside {
-    //         sh 'echo "Tests passed"'
-    //     }
-    // }
+    stage('Test image') {
+        app.inside {
+            sh 'echo "Tests passed new!"'
+        }
+    }
 
     // stage('Push image') {
         
