@@ -8,17 +8,17 @@ node {
     }
 
     stage('Build image') {
-  
+        // build an image locally atinav/test:latest
        app = docker.build("atinav/test")
     }
 
-    // stage('Test image') {
+    stage('Test image') {
   
 
-    //     app.inside {
-    //         sh 'echo "Tests passed"'
-    //     }
-    // }
+        app.inside {
+            sh 'echo "Tests passed"'
+        }
+    }
 
     // stage('Push image') {
         
