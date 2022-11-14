@@ -13,7 +13,7 @@
 //        app.inside {
 //         sh 'echo "Tests passed 1"'
 //        }
-    }
+//     }
     
     
     node {
