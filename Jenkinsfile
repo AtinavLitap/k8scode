@@ -24,7 +24,7 @@
 //     customImage.inside {
 //         sh 'make test'
 //     }
-}
+
 
     
     
