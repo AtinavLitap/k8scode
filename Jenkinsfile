@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image') {
-        // build an image locally atinav/test:latest
+        // build an image locally atinav/test:<tag>
        app = docker.build("atinav/test:${env.BUILD_ID}")
     }
     
