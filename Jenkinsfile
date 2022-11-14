@@ -10,9 +10,9 @@ node {
     stage('Build image') {
         // build an image locally atinav/test:latest
        app = docker.build("atinav/test")
-       app.inside {
-        sh 'echo "Tests passed 1"'
-       }
+//        app.inside {
+//         sh 'echo "Tests passed 1"'
+//        }
     }
 
     // stage('Test image') {
