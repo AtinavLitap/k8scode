@@ -7,7 +7,7 @@ node {
 
     stage('Build image') {
         // build an image locally atinav/test:<tag>
-       app = docker.build("atinav/test:${env.BUILD_ID}")
+       app = docker.build("atinav/test")
     }
     
 
@@ -17,12 +17,12 @@ node {
         }
     }
 
-    // stage('Push image') {
+    stage('Push image') {
         
-    //     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-    //         app.push("${env.BUILD_NUMBER}")
-    //     }
-    // }
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+            app.push("${env.BUILD_NUMBER}")
+        }
+    }
     
     // stage('Trigger ManifestUpdate') {
     //             echo "triggering updatemanifestjob"
